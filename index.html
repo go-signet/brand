@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signet — Brand</title>
+<meta name="description" content="Brand guidelines for Signet, a self-hosted OAuth 2.0 / OIDC authorization server written in Go. The ring is the key; the impression is the signature.">
+<meta property="og:title" content="Signet — Brand">
+<meta property="og:description" content="The ring is the key. The impression is the signature. Brand guidelines for the Signet authorization server.">
+<meta property="og:image" content="preview.png">
+<link rel="icon" href="favicon/favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:      #F5F6FB;
+    --paper-deep: #ECEEF6;
+    --ink:        #1E1B2E;
+    --ink-soft:   #4C4960;
+    --bezel:      #4338CA;
+    --band:       #6366F1;
+    --frost:      #EEF2FF;
+    --periwinkle: #C7D2FE;
+    --hairline:   #DDE1F0;
+    --emboss:     #C9CFE6;
+
+    --font-display: "Poppins", sans-serif;
+    --font-body:    "IBM Plex Sans", sans-serif;
+    --font-mono:    "IBM Plex Mono", monospace;
+
+    /* the bezel's own corner geometry: 61/280 ≈ 21.8% cut */
+    --octagon: polygon(21.8% 0, 78.2% 0, 100% 21.8%, 100% 78.2%, 78.2% 100%, 21.8% 100%, 0 78.2%, 0 21.8%);
+
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--bezel); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  :focus-visible {
+    outline: 2px solid var(--bezel);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- nav ---------- */
+
+  header.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 0 0;
+  }
+
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+  .brand-lockup:hover { text-decoration: none; }
+  .brand-lockup img { width: 30px; height: 30px; display: block; }
+  .brand-lockup .slash { color: var(--periwinkle); font-weight: 400; }
+  .brand-lockup .section-name { color: var(--ink-soft); font-weight: 400; }
+
+  nav.site {
+    display: flex;
+    gap: 26px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+  nav.site a { color: var(--ink-soft); }
+  nav.site a:hover { color: var(--bezel); }
+  nav.site .gh { color: var(--bezel); }
+
+  @media (max-width: 720px) {
+    nav.site { display: none; }
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+    gap: 56px;
+    align-items: center;
+    padding: 84px 0 96px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--band);
+    margin: 0 0 18px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    flex: none;
+    background: var(--band);
+    clip-path: var(--octagon);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    margin: 0 0 24px;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--bezel);
+  }
+
+  .hero p.lede {
+    max-width: 46ch;
+    color: var(--ink-soft);
+    margin: 0 0 34px;
+  }
+
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+  .btn:hover { text-decoration: none; }
+  .btn.primary { background: var(--bezel); color: #fff; }
+  .btn.primary:hover { background: #3730A3; }
+  .btn.ghost { border-color: var(--periwinkle); color: var(--bezel); }
+  .btn.ghost:hover { background: var(--frost); }
+
+  /* the seal: ring above, impression it leaves below */
+  .seal-stage {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+  }
+
+  .seal-item {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .seal-item img {
+    width: min(224px, 44vw);
+    height: auto;
+    display: block;
+  }
+
+  /* the impression matches the bezel face that stamped it: 280/512 of the ring's box */
+  .seal-item svg {
+    width: min(130px, 26vw);
+    height: auto;
+    display: block;
+  }
+
+  .seal-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 34ch;
+    margin: 0;
+    line-height: 1.7;
+  }
+  .seal-label strong { color: var(--ink); font-weight: 500; }
+
+  .seal-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--band);
+    line-height: 1;
+    padding: 2px 0;
+  }
+
+  @keyframes ring-press {
+    0%   { transform: translateY(-18px); opacity: 0; }
+    40%  { transform: translateY(10px);  opacity: 1; }
+    62%  { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+  }
+  @keyframes stamp-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .seal-ring       { animation: ring-press 1.2s cubic-bezier(.3,.7,.3,1) 0.25s both; }
+  .seal-impression { animation: stamp-in 0.55s ease-out 1.0s both; }
+  .seal-arrow      { animation: stamp-in 0.55s ease-out 0.85s both; }
+
+  @media (max-width: 880px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 0 72px; }
+    .seal-stage { justify-self: center; }
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    border-top: 1px solid var(--hairline);
+    padding: 76px 0;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin: 0 0 14px;
+  }
+
+  .section-intro {
+    max-width: 60ch;
+    color: var(--ink-soft);
+    margin: 0 0 44px;
+  }
+
+  /* ---------- marks ---------- */
+
+  .mark-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .mark-card {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 30px;
+  }
+
+  .mark-card .stage {
+    display: grid;
+    place-items: center;
+    background: var(--frost);
+    border-radius: 6px;
+    padding: 40px 20px;
+    margin-bottom: 22px;
+  }
+  .mark-card .stage img { width: 132px; height: 132px; }
+
+  .mark-card h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+  }
+  .mark-card .file {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--band);
+    margin: 0 0 10px;
+  }
+  .mark-card p { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+
+  .scale-strip {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 26px 30px;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    flex-wrap: wrap;
+  }
+  .scale-strip .note {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-right: auto;
+  }
+  .scale-step { display: grid; justify-items: center; gap: 8px; }
+  .scale-step span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 720px) {
+    .mark-grid { grid-template-columns: 1fr; }
+    .scale-strip .note { width: 100%; margin: 0 0 6px; }
+  }
+
+  /* ---------- why ---------- */
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 56px;
+  }
+  .why-item h3 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin: 0 0 8px;
+  }
+  .why-item h3::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    flex: none;
+    align-self: center;
+    background: var(--bezel);
+    clip-path: var(--octagon);
+  }
+  .why-item p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+  }
+  .why-item code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--frost);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  @media (max-width: 720px) {
+    .why-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ---------- palette ---------- */
+
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+    gap: 18px;
+  }
+
+  .swatch {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    text-align: left;
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 18px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .swatch:hover { border-color: var(--periwinkle); transform: translateY(-2px); }
+
+  .stone-rim {
+    width: 64px;
+    height: 64px;
+    clip-path: var(--octagon);
+    background: var(--hairline);
+    display: grid;
+    place-items: center;
+  }
+  .stone {
+    width: 62px;
+    height: 62px;
+    clip-path: var(--octagon);
+  }
+
+  .swatch .meta { min-width: 0; }
+  .swatch .name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: block;
+  }
+  .swatch .hex {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--band);
+    display: block;
+    margin: 2px 0 4px;
+  }
+  .swatch .role {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    display: block;
+    line-height: 1.4;
+  }
+
+  .palette-hint {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin: 18px 0 0;
+  }
+
+  /* ---------- type ---------- */
+
+  .specimen {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 44px 40px 36px;
+    margin-bottom: 24px;
+  }
+  .specimen .wordmark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin: 0 0 10px;
+  }
+  .specimen .glyphs {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  .type-roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .type-role {
+    border-top: 2px solid var(--bezel);
+    padding-top: 14px;
+  }
+  .type-role .sample { font-size: 1.5rem; line-height: 1.2; margin: 0 0 8px; }
+  .type-role:nth-child(1) .sample { font-family: var(--font-display); font-weight: 600; }
+  .type-role:nth-child(2) .sample { font-family: var(--font-body); font-weight: 400; }
+  .type-role:nth-child(3) .sample { font-family: var(--font-mono); font-weight: 400; font-size: 1.25rem; }
+  .type-role p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .type-role p strong { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .type-roles { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- modes ---------- */
+
+  .mode-demo {
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .mode-controls {
+    display: flex;
+    gap: 8px;
+    padding: 14px 18px;
+    background: #fff;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .mode-controls button {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    padding: 7px 16px;
+    border-radius: 5px;
+    border: 1px solid var(--hairline);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .mode-controls button[aria-pressed="true"] {
+    background: var(--frost);
+    border-color: var(--periwinkle);
+    color: var(--bezel);
+  }
+
+  .mode-stage {
+    display: grid;
+    place-items: center;
+    padding: 72px 24px;
+    background: var(--paper);
+    transition: background 0.25s ease;
+  }
+  .mode-stage img { width: min(360px, 70vw); height: auto; }
+  .mode-stage .logo-dark { display: none; }
+
+  .mode-demo.is-dark .mode-stage { background: var(--ink); }
+  .mode-demo.is-dark .logo-light { display: none; }
+  .mode-demo.is-dark .logo-dark  { display: block; }
+
+  /* ---------- usage ---------- */
+
+  .rule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .rule-card {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 26px 30px;
+  }
+  .rule-card h3 {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+  .rule-card.do h3 { color: var(--bezel); }
+  .rule-card.dont h3 { color: #A03A52; }
+  .rule-card ul { margin: 0; padding: 0; list-style: none; }
+  .rule-card li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .rule-card li:last-child { margin-bottom: 0; }
+  .rule-card.do li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.52em;
+    width: 9px;
+    height: 9px;
+    background: var(--band);
+    clip-path: var(--octagon);
+  }
+  .rule-card.dont li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.8rem;
+    color: #A03A52;
+  }
+
+  @media (max-width: 720px) {
+    .rule-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- files ---------- */
+
+  .table-wrap {
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    background: #fff;
+    overflow-x: auto;
+  }
+  table.files {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+  }
+  .files th, .files td {
+    text-align: left;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 0.92rem;
+  }
+  .files tr:last-child td { border-bottom: none; }
+  .files th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--frost);
+  }
+  .files td:first-child a { font-family: var(--font-mono); font-size: 0.85rem; }
+  .files td:last-child { color: var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+  footer .foot-mark { display: flex; align-items: center; gap: 10px; }
+  footer .foot-mark img { width: 22px; height: 22px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .seal-ring, .seal-impression, .seal-arrow { animation: none; }
+    .swatch, .mode-stage { transition: none; }
+    .swatch:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand-lockup" href="#top">
+      <img src="icon.svg" alt="">
+      Signet <span class="slash">/</span> <span class="section-name">brand</span>
+    </a>
+    <nav class="site" aria-label="Sections">
+      <a href="#marks">marks</a>
+      <a href="#why">why</a>
+      <a href="#palette">palette</a>
+      <a href="#type">type</a>
+      <a href="#usage">usage</a>
+      <a class="gh" href="https://github.com/go-signet/brand">github ↗</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div>
+      <p class="eyebrow">Signet · Brand guidelines</p>
+      <h1>The ring is the key.<br>The impression is the <em>signature</em>.</h1>
+      <p class="lede">
+        Signet is a self-hosted OAuth 2.0 / OIDC authorization server written in Go.
+        Its mark is a signet ring — the original instrument for certifying documents.
+        The ring stays with its owner; the seal it presses can be verified by anyone
+        but forged by no one. The logo <em>is</em> the architecture diagram.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/go-signet/brand">Get the assets</a>
+        <a class="btn ghost" href="#usage">Read the usage rules</a>
+      </div>
+    </div>
+
+    <div class="seal-stage" aria-label="The ring mark and the impression it stamps">
+      <div class="seal-item seal-ring">
+        <img src="mark.svg" alt="Signet full mark: an octagonal bezel with a carved S on a ring band">
+        <p class="seal-label"><strong>The ring</strong> — the private key you hold</p>
+      </div>
+      <div class="seal-arrow" aria-hidden="true">↓ presses</div>
+      <div class="seal-item seal-impression">
+        <svg viewBox="104 -6 304 306" role="img" aria-label="Blind-embossed impression of the octagonal seal in paper">
+          <polygon points="177,8 335,8 396,69 396,227 335,288 177,288 116,227 116,69" fill="var(--paper-deep)"/>
+          <g fill="none" stroke="#FFFFFF" stroke-width="9" transform="translate(3,3)">
+            <polygon points="177,8 335,8 396,69 396,227 335,288 177,288 116,227 116,69"/>
+            <path d="M323 93 H189 V148 H323 V203 H189" stroke-width="26" stroke-linecap="square"/>
+          </g>
+          <g fill="none" stroke="var(--emboss)" stroke-width="9">
+            <polygon points="177,8 335,8 396,69 396,227 335,288 177,288 116,227 116,69"/>
+            <path d="M323 93 H189 V148 H323 V203 H189" stroke-width="26" stroke-linecap="square"/>
+          </g>
+        </svg>
+        <p class="seal-label"><strong>The impression</strong> — the RS256 signature anyone can verify</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="marks">
+    <h2>Two marks, one bezel</h2>
+    <p class="section-intro">
+      The system uses two marks that share the same octagonal geometry and the same
+      colors. When the logo scales down and the band is dropped, what remains is
+      still unmistakably the same object — recognition never breaks between a
+      conference slide and a 16&nbsp;px favicon.
+    </p>
+
+    <div class="mark-grid">
+      <div class="mark-card">
+        <div class="stage"><img src="mark.svg" alt="Full mark: the complete signet ring"></div>
+        <h3>Full mark</h3>
+        <p class="file">mark.svg</p>
+        <p>The complete ring — octagonal bezel with a carved “S” on a ring band.
+           Use wherever there is room: README headers, websites, slides, social cards.
+           Above ~64&nbsp;px height.</p>
+      </div>
+      <div class="mark-card">
+        <div class="stage"><img src="icon.svg" alt="Small mark: the octagonal bezel alone"></div>
+        <h3>Small mark</h3>
+        <p class="file">icon.svg</p>
+        <p>The bezel alone. Use at small sizes — favicons, org avatars, app icons —
+           where the band would collapse into a thin line. Below ~64&nbsp;px height.</p>
+      </div>
+    </div>
+
+    <div class="scale-strip" aria-label="The small mark shown at 64, 48, 32, 24 and 16 pixels">
+      <span class="note">Legible all the way down</span>
+      <div class="scale-step"><img src="icon.svg" width="64" height="64" alt=""><span>64</span></div>
+      <div class="scale-step"><img src="icon.svg" width="48" height="48" alt=""><span>48</span></div>
+      <div class="scale-step"><img src="icon.svg" width="32" height="32" alt=""><span>32</span></div>
+      <div class="scale-step"><img src="icon.svg" width="24" height="24" alt=""><span>24</span></div>
+      <div class="scale-step"><img src="icon.svg" width="16" height="16" alt=""><span>16</span></div>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2>Why the ring</h2>
+    <p class="section-intro">
+      Every decision in the mark maps to something true about what Signet does.
+    </p>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>The logo is the architecture diagram</h3>
+        <p>A signet ring stays with its owner — pressing it into wax produces a mark
+           anyone can verify but nobody else can make. The ring is the private key
+           you hold; the impression is the verifiable RS256 signature it stamps onto
+           every token.</p>
+      </div>
+      <div class="why-item">
+        <h3>An octagon, not a circle</h3>
+        <p>The eight-sided bezel reads as a cut, engraved stone, and its silhouette
+           stays distinctive at tiny sizes where a circle would blend into every
+           other round avatar.</p>
+      </div>
+      <div class="why-item">
+        <h3>Depth from two flat tones</h3>
+        <p>The bezel sits in front in <code>#4338CA</code>; the band recedes one step
+           lighter in <code>#6366F1</code>. Two flat tones are enough to read as a
+           three-dimensional ring — no gradients or shadows, so the mark stays
+           trivially reproducible.</p>
+      </div>
+      <div class="why-item">
+        <h3>The “S” is carved, not printed</h3>
+        <p>The frost strokes are drawn as engraved lines in the stone — a seal ready
+           to stamp, not a letter pasted on top.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="palette">
+    <h2>Palette</h2>
+    <p class="section-intro">
+      Seven colors, no gradients. Two indigos build the ring, two frosts carve it,
+      and three neutrals carry the wordmark across light and dark.
+    </p>
+
+    <div class="swatch-grid">
+      <button class="swatch" type="button" data-hex="#4338CA">
+        <span class="stone-rim"><span class="stone" style="background:#4338CA"></span></span>
+        <span class="meta">
+          <span class="name">Bezel indigo</span>
+          <span class="hex">#4338CA</span>
+          <span class="role">Bezel fill, primary brand color</span>
+        </span>
+      </button>
+      <button class="swatch" type="button" data-hex="#6366F1">
+        <span class="stone-rim"><span class="stone" style="background:#6366F1"></span></span>
+        <span class="meta">
+          <span class="name">Band indigo</span>
+          <span class="hex">#6366F1</span>
+          <span class="role">Ring band</span>
+        </span>
+      </button>
+      <button class="swatch" type="button" data-hex="#EEF2FF">
+        <span class="stone-rim"><span class="stone" style="background:#EEF2FF"></span></span>
+        <span class="meta">
+          <span class="name">Frost</span>
+          <span class="hex">#EEF2FF</span>
+          <span class="role">Carved “S” strokes</span>
+        </span>
+      </button>
+      <button class="swatch" type="button" data-hex="#C7D2FE">
+        <span class="stone-rim"><span class="stone" style="background:#C7D2FE"></span></span>
+        <span class="meta">
+          <span class="name">Periwinkle</span>
+          <span class="hex">#C7D2FE</span>
+          <span class="role">Hairline inner frame</span>
+        </span>
+      </button>
+      <button class="swatch" type="button" data-hex="#1E1B2E">
+        <span class="stone-rim"><span class="stone" style="background:#1E1B2E"></span></span>
+        <span class="meta">
+          <span class="name">Ink</span>
+          <span class="hex">#1E1B2E</span>
+          <span class="role">Wordmark on light backgrounds</span>
+        </span>
+      </button>
+      <button class="swatch" type="button" data-hex="#F1F2F8">
+        <span class="stone-rim"><span class="stone" style="background:#F1F2F8"></span></span>
+        <span class="meta">
+          <span class="name">Cream</span>
+          <span class="hex">#F1F2F8</span>
+          <span class="role">Wordmark on dark backgrounds</span>
+        </span>
+      </button>
+      <button class="swatch" type="button" data-hex="#F5F6FB">
+        <span class="stone-rim"><span class="stone" style="background:#F5F6FB"></span></span>
+        <span class="meta">
+          <span class="name">Paper</span>
+          <span class="hex">#F5F6FB</span>
+          <span class="role">Light background, preview canvas</span>
+        </span>
+      </button>
+    </div>
+    <p class="palette-hint" aria-live="polite" id="copy-hint">Click a stone to copy its hex value.</p>
+  </section>
+
+  <section id="type">
+    <h2>Typography</h2>
+    <p class="section-intro">
+      The wordmark is set in Poppins Medium, converted to outlines in every logo file —
+      no font dependency ships with the assets.
+    </p>
+
+    <div class="specimen">
+      <p class="wordmark">Signet</p>
+      <p class="glyphs">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSs 0123456789</p>
+    </div>
+
+    <div class="type-roles">
+      <div class="type-role">
+        <p class="sample">Poppins</p>
+        <p><strong>Display.</strong> Medium 500 for the wordmark, SemiBold 600 for
+           headlines. Geometric, like the bezel.</p>
+      </div>
+      <div class="type-role">
+        <p class="sample">IBM Plex Sans</p>
+        <p><strong>Body.</strong> Documentation and interface copy alongside the
+           brand.</p>
+      </div>
+      <div class="type-role">
+        <p class="sample">IBM Plex Mono</p>
+        <p><strong>Data.</strong> Hex values, file names, scopes, tokens — anything
+           a developer will copy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="modes">
+    <h2>Light &amp; dark</h2>
+    <p class="section-intro">
+      The marks are mode-agnostic — only the wordmark ink switches. Use
+      <a href="logo-auto.svg"><code style="font-family:var(--font-mono);font-size:0.85em">logo-auto.svg</code></a>
+      on websites; GitHub READMEs need the <code style="font-family:var(--font-mono);font-size:0.85em">&lt;picture&gt;</code> pattern.
+    </p>
+
+    <div class="mode-demo" id="mode-demo">
+      <div class="mode-controls" role="group" aria-label="Preview background">
+        <button type="button" data-mode="light" aria-pressed="true">light</button>
+        <button type="button" data-mode="dark" aria-pressed="false">dark</button>
+      </div>
+      <div class="mode-stage">
+        <img class="logo-light" src="logo.svg" alt="Signet lockup on a light background">
+        <img class="logo-dark" src="logo-dark.svg" alt="Signet lockup on a dark background">
+      </div>
+    </div>
+  </section>
+
+  <section id="usage">
+    <h2>Usage rules</h2>
+    <p class="section-intro">
+      The mark works because it is exact. Keep it that way.
+    </p>
+    <div class="rule-grid">
+      <div class="rule-card do">
+        <h3>Do</h3>
+        <ul>
+          <li>Use the full mark above ~64 px height, the small mark below.</li>
+          <li>Keep clear space of at least 25% of the mark’s width.</li>
+          <li>Use <span style="font-family:var(--font-mono);font-size:0.9em">android-chrome-512x512.png</span> for GitHub org avatars — GitHub does not accept SVG.</li>
+          <li>Place either mark on light or dark backgrounds as-is; they are mode-agnostic.</li>
+        </ul>
+      </div>
+      <div class="rule-card dont">
+        <h3>Don’t</h3>
+        <ul>
+          <li>Recolor the marks or add gradients and shadows.</li>
+          <li>Rotate the octagon.</li>
+          <li>Detach the bezel from the band in the full mark.</li>
+          <li>Use the name or ring mark to imply endorsement by the go-signet project.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="assets">
+    <h2>Files</h2>
+    <p class="section-intro">
+      Everything ships as SVG plus a generated favicon set. All assets are licensed
+      CC&nbsp;BY&nbsp;4.0.
+    </p>
+    <div class="table-wrap">
+    <table class="files">
+      <thead>
+        <tr><th>File</th><th>Usage</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="logo.svg">logo.svg</a></td><td>Full lockup (ring + wordmark) for light backgrounds</td></tr>
+        <tr><td><a href="logo-dark.svg">logo-dark.svg</a></td><td>Full lockup for dark backgrounds</td></tr>
+        <tr><td><a href="logo-auto.svg">logo-auto.svg</a></td><td>Lockup that follows <span style="font-family:var(--font-mono);font-size:0.9em">prefers-color-scheme</span> (websites, not GitHub READMEs)</td></tr>
+        <tr><td><a href="mark.svg">mark.svg</a></td><td>Full mark, square — slides, stickers, large avatars</td></tr>
+        <tr><td><a href="icon.svg">icon.svg</a></td><td>Small mark, square — favicons and tiny contexts</td></tr>
+        <tr><td><a href="preview.png">preview.png</a> / <a href="preview-dark.png">preview-dark.png</a></td><td>1200×630 social / Open Graph cards</td></tr>
+        <tr><td><a href="favicon/">favicon/</a></td><td>Generated favicon set + <span style="font-family:var(--font-mono);font-size:0.9em">HEAD-snippet.html</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-mark">
+      <img src="icon.svg" alt="">
+      <span>Signet brand assets — CC BY 4.0</span>
+    </div>
+    <span><a href="https://github.com/go-signet">github.com/go-signet</a></span>
+  </footer>
+</div>
+
+<script>
+  // copy hex on swatch click
+  const hint = document.getElementById('copy-hint');
+  const hintDefault = hint.textContent;
+  let hintTimer;
+  document.querySelectorAll('.swatch').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const hex = btn.dataset.hex;
+      try {
+        await navigator.clipboard.writeText(hex);
+        hint.textContent = hex + ' copied to clipboard.';
+      } catch {
+        hint.textContent = hex + ' — clipboard unavailable, copy it manually.';
+      }
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(() => { hint.textContent = hintDefault; }, 1800);
+    });
+  });
+
+  // light / dark lockup demo
+  const demo = document.getElementById('mode-demo');
+  demo.querySelectorAll('[data-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      demo.classList.toggle('is-dark', btn.dataset.mode === 'dark');
+      demo.querySelectorAll('[data-mode]').forEach(b =>
+        b.setAttribute('aria-pressed', String(b === btn)));
+    });
+  });
+</script>
+</body>
+</html>
