@@ -9,6 +9,8 @@
 
 Official brand assets for [Signet](https://github.com/go-signet) — a self-hosted OAuth 2.0 / OIDC authorization server written in Go.
 
+**Browse the interactive brand guidelines: [go-signet.github.io/brand](https://go-signet.github.io/brand/)**
+
 The identity is a **signet ring** — the original instrument for signing and certifying documents, which is exactly what Signet does for your tokens. The system uses two marks that share one geometry:
 
 |                                                              Full mark — `mark.svg`                                                               |                                                         Small mark — `icon.svg`                                                         |
